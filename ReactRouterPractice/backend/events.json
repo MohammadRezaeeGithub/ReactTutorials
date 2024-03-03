@@ -1,11 +1,1 @@
-{
-  "events": [
-    {
-      "id": "e1",
-      "title": "A dummy event",
-      "date": "2023-02-22",
-      "image": "https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg",
-      "description": "Join this amazing event and connect with fellow developers."
-    }
-  ]
-}
+{"events":[{"title":"test event","image":"https://nanisdreamevents.com/wp-content/uploads/2023/03/corporate1-1.jpg","date":"2024-03-10","description":"some new event test","id":"87596494-9156-4507-b947-24d855710610"},{"title":"birthday","image":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fnanisdreamevents.com%2Fcorporate-event%2F&psig=AOvVaw2Q7cUly9k3yQGOrAza7eew&ust=1709583146975000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJD269Pz2IQDFQAAAAAdAAAAABAE","date":"2024-03-10","description":"some new actions","id":"d1217473-83eb-46cc-9bfd-bb06a28e844a"},{"id":"e1","title":"A dummy event","date":"2023-02-22","image":"https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg","description":"Join this amazing event and connect with fellow developers."}]}

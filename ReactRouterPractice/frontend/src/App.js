@@ -23,8 +23,10 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
 import Event, { loader as eventsLoader } from "./pages/Event";
-import EventDetails from "./pages/EventDetails";
-import NewEvent from "./pages/NewEvent";
+import EventDetails, {
+  loader as eventDetailLoader,
+} from "./pages/EventDetails";
+import NewEvent, { action as newEventAction } from "./pages/NewEvent";
 import EditEvent from "./pages/EditEvent";
 import Root from "./pages/Root";
 import EventRoot from "./pages/EventsRoot";
@@ -46,9 +48,21 @@ const router = createBrowserRouter([
             element: <Event />,
             loader: eventsLoader,
           },
-          { path: ":eventId", element: <EventDetails /> },
-          { path: "new", element: <NewEvent /> },
-          { path: ":id/edit", element: <EditEvent /> },
+          {
+            path: ":eventId",
+            id: "event-detailed", //when we use the loader here, it is difficult for children to use this loader
+            //so in the component we use another hook
+            loader: eventDetailLoader,
+            children: [
+              {
+                index: true,
+                element: <EventDetails />,
+              },
+              { path: "edit", element: <EditEvent /> },
+            ],
+          },
+
+          { path: "new", element: <NewEvent />, action: newEventAction },
         ],
       },
     ],

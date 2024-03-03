@@ -38,6 +38,7 @@ export const fetchCartData = () => {
 };
 
 export const sendCartData = (cart) => {
+  //when you return a function in a function creator, the redux will euctute it and pass the dispatch
   return async (dispatch) => {
     dispatch(
       uiActions.showNotification({
