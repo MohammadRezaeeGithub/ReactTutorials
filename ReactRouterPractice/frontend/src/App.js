@@ -25,12 +25,14 @@ import Home from "./pages/Home";
 import Event, { loader as eventsLoader } from "./pages/Event";
 import EventDetails, {
   loader as eventDetailLoader,
+  action as eventDeleteAction,
 } from "./pages/EventDetails";
-import NewEvent, { action as newEventAction } from "./pages/NewEvent";
+import NewEvent from "./pages/NewEvent";
 import EditEvent from "./pages/EditEvent";
 import Root from "./pages/Root";
 import EventRoot from "./pages/EventsRoot";
 import Error from "./pages/Error";
+import { action as manipulateEventAction } from "./components/EventForm";
 
 const router = createBrowserRouter([
   {
@@ -57,12 +59,17 @@ const router = createBrowserRouter([
               {
                 index: true,
                 element: <EventDetails />,
+                action: eventDeleteAction,
               },
-              { path: "edit", element: <EditEvent /> },
+              {
+                path: "edit",
+                element: <EditEvent />,
+                action: manipulateEventAction,
+              },
             ],
           },
 
-          { path: "new", element: <NewEvent />, action: newEventAction },
+          { path: "new", element: <NewEvent />, action: manipulateEventAction },
         ],
       },
     ],

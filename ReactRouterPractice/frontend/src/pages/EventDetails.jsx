@@ -1,5 +1,6 @@
 import {
   json,
+  redirect,
   useLoaderData,
   useParams,
   useRouteLoaderData,
@@ -24,4 +25,19 @@ export async function loader({ request, params }) {
   } else {
     return response;
   }
+}
+
+export async function action({ params, request }) {
+  const eventId = params.eventId;
+
+  //here we could use the method we already defined in the eventItem component or manually set it to delete
+  const response = await fetch("http://localhost:8080/events/" + eventId, {
+    method: request.method,
+  });
+
+  if (!response.ok) {
+    return json({ message: "Could not delete this event" }, { status: 500 });
+  }
+
+  return redirect("/events");
 }
