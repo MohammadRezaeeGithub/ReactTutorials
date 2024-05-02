@@ -11,12 +11,12 @@ export default function Answers({
   //TO STORE A VALUE WHICH WILL NOT BE CHANGED IF COMPONENT GETS RE-RENDERED
   const shuffledAnswers = useRef();
 
-  //we chech if shuffeled is undefined
+  //we chekh if shuffeled is undefined
   if (!shuffledAnswers.current) {
     //WE BROUGHT THIS PART OF CODE HERE BECAUSE IF GAME IS NOT COMPLETED, THEN WE NEED TO SHUFFLE THE ANSWERS
     //AND IF WE HAD ALREADY ANSERED ALL THE QUESTION, THIS PART OF CODE SHOULD NOT BE ANSWERED
     //shuffling the answers  while we don't change the original array
-    shuffledAnswers.current = [...answers];
+    shuffledAnswers.current = [...answers]; //spread the answers into a new array
     shuffledAnswers.current.sort(() => Math.random() - 0.5);
   }
 

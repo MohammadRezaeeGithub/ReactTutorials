@@ -21,6 +21,8 @@ export default function Quiz() {
 
       setUserAnswers((preState) => {
         //since we do not want to change original array, we made a new array and add the selected answer into it
+        //beacuse we want to change the state besed on previous state
+        //and previous state is an array
         return [...preState, selectedAnswer];
       });
 
@@ -56,8 +58,11 @@ export default function Quiz() {
 
   return (
     <div id="quiz">
+      {/* we add the key to recreate this component. beacuse it was a part of the dom and it did not have the changes, so it will not recreated */}
+      {/* and the timer will not be reexecuted again. */}
       <Question
         key={activeQuestionIndex}
+        // we are not allowed to use the key as prope, it is used only by react and that's why we added the index
         index={activeQuestionIndex}
         onSelectAnswer={handleSelectAnswer}
         onSkipAnswer={handleSkipAnswer}

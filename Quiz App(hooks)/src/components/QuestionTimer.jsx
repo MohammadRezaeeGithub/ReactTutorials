@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function QuestionTimer({ timeout, onTimeOut }) {
+export default function QuestionTimer({ timeout, onTimeOut, mode }) {
   //to update this progress bar we define a state
   const [reaminigTime, setRemainingTime] = useState(timeout);
 
@@ -26,6 +26,7 @@ export default function QuestionTimer({ timeout, onTimeOut }) {
   useEffect(() => {
     console.log("SETTING INTERVAL");
     const interval = setInterval(() => {
+      //beacuse we update the state base on the previous state, it will be passed automatically to the function
       setRemainingTime((prevRemainingTime) => prevRemainingTime - 100);
     }, 100);
 
@@ -36,5 +37,12 @@ export default function QuestionTimer({ timeout, onTimeOut }) {
     };
   }, []);
 
-  return <progress id="question-time" max={timeout} value={reaminigTime} />;
+  return (
+    <progress
+      id="question-time"
+      max={timeout}
+      value={reaminigTime}
+      className={mode}
+    />
+  );
 }
