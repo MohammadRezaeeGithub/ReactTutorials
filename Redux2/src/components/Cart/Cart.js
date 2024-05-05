@@ -4,6 +4,7 @@ import classes from "./Cart.module.css";
 import CartItem from "./CartItem";
 
 const Cart = (props) => {
+  //extract data from the store using useSelector
   const cartItems = useSelector((state) => state.cart.items);
   return (
     <Card className={classes.cart}>

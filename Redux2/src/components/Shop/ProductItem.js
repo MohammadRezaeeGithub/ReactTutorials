@@ -8,6 +8,7 @@ const ProductItem = (props) => {
   const dispatch = useDispatch();
 
   const addToCartHandler = () => {
+    //we pass the data (an item) so we can recieve it in cart-slice.js
     dispatch(cartActions.addItemToCart({ id, title, price }));
   };
 
